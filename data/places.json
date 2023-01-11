@@ -1,0 +1,263 @@
+{
+  "predictions": [
+    {
+      "description": "Berlin, Germany",
+      "matched_substrings": [
+        {
+          "length": 6,
+          "offset": 0
+        },
+        {
+          "length": 7,
+          "offset": 8
+        }
+      ],
+      "place_id": "ChIJAVkDPzdOqEcRcDteW0YgIQQ",
+      "reference": "ChIJAVkDPzdOqEcRcDteW0YgIQQ",
+      "structured_formatting": {
+        "main_text": "Berlin",
+        "main_text_matched_substrings": [
+          {
+            "length": 6,
+            "offset": 0
+          }
+        ],
+        "secondary_text": "Germany",
+        "secondary_text_matched_substrings": [
+          {
+            "length": 7,
+            "offset": 0
+          }
+        ]
+      },
+      "terms": [
+        {
+          "offset": 0,
+          "value": "Berlin"
+        },
+        {
+          "offset": 8,
+          "value": "Germany"
+        }
+      ],
+      "types": [
+        "locality",
+        "political",
+        "geocode"
+      ]
+    },
+    {
+      "description": "Germany Trade and Invest GmbH, Friedrichstraße, Berlin, Germany",
+      "matched_substrings": [
+        {
+          "length": 7,
+          "offset": 0
+        },
+        {
+          "length": 6,
+          "offset": 48
+        }
+      ],
+      "place_id": "ChIJdS95X9BRqEcRzrWv7wRcbv0",
+      "reference": "ChIJdS95X9BRqEcRzrWv7wRcbv0",
+      "structured_formatting": {
+        "main_text": "Germany Trade and Invest GmbH",
+        "main_text_matched_substrings": [
+          {
+            "length": 7,
+            "offset": 0
+          }
+        ],
+        "secondary_text": "Friedrichstraße, Berlin, Germany",
+        "secondary_text_matched_substrings": [
+          {
+            "length": 6,
+            "offset": 17
+          }
+        ]
+      },
+      "terms": [
+        {
+          "offset": 0,
+          "value": "Germany Trade and Invest GmbH"
+        },
+        {
+          "offset": 31,
+          "value": "Friedrichstraße"
+        },
+        {
+          "offset": 48,
+          "value": "Berlin"
+        },
+        {
+          "offset": 56,
+          "value": "Germany"
+        }
+      ],
+      "types": [
+        "finance",
+        "point_of_interest",
+        "establishment"
+      ]
+    },
+    {
+      "description": "Embassy of Bangladesh, Kaiserin-Augusta-Allee, Berlin, Germany",
+      "matched_substrings": [
+        {
+          "length": 21,
+          "offset": 0
+        },
+        {
+          "length": 6,
+          "offset": 47
+        }
+      ],
+      "place_id": "ChIJn8e14BlRqEcRCTCBmtULehI",
+      "reference": "ChIJn8e14BlRqEcRCTCBmtULehI",
+      "structured_formatting": {
+        "main_text": "Embassy of Bangladesh",
+        "main_text_matched_substrings": [
+          {
+            "length": 21,
+            "offset": 0
+          }
+        ],
+        "secondary_text": "Kaiserin-Augusta-Allee, Berlin, Germany",
+        "secondary_text_matched_substrings": [
+          {
+            "length": 6,
+            "offset": 24
+          }
+        ]
+      },
+      "terms": [
+        {
+          "offset": 0,
+          "value": "Embassy of Bangladesh"
+        },
+        {
+          "offset": 23,
+          "value": "Kaiserin-Augusta-Allee"
+        },
+        {
+          "offset": 47,
+          "value": "Berlin"
+        },
+        {
+          "offset": 55,
+          "value": "Germany"
+        }
+      ],
+      "types": [
+        "embassy",
+        "point_of_interest",
+        "establishment"
+      ]
+    },
+    {
+      "description": "Berlin, Seedorf, Germany",
+      "matched_substrings": [
+        {
+          "length": 6,
+          "offset": 0
+        },
+        {
+          "length": 7,
+          "offset": 17
+        }
+      ],
+      "place_id": "ChIJEYIu_K9rskcR23AC3alv2FA",
+      "reference": "ChIJEYIu_K9rskcR23AC3alv2FA",
+      "structured_formatting": {
+        "main_text": "Berlin",
+        "main_text_matched_substrings": [
+          {
+            "length": 6,
+            "offset": 0
+          }
+        ],
+        "secondary_text": "Seedorf, Germany",
+        "secondary_text_matched_substrings": [
+          {
+            "length": 7,
+            "offset": 9
+          }
+        ]
+      },
+      "terms": [
+        {
+          "offset": 0,
+          "value": "Berlin"
+        },
+        {
+          "offset": 8,
+          "value": "Seedorf"
+        },
+        {
+          "offset": 17,
+          "value": "Germany"
+        }
+      ],
+      "types": [
+        "sublocality_level_1",
+        "sublocality",
+        "political",
+        "geocode"
+      ]
+    },
+    {
+      "description": "Germany - Land of Ideas, Charlottenstraße, Berlin, Germany",
+      "matched_substrings": [
+        {
+          "length": 7,
+          "offset": 0
+        },
+        {
+          "length": 6,
+          "offset": 43
+        }
+      ],
+      "place_id": "ChIJlQ33DSdOqEcRvDc9HVo4xeQ",
+      "reference": "ChIJlQ33DSdOqEcRvDc9HVo4xeQ",
+      "structured_formatting": {
+        "main_text": "Germany - Land of Ideas",
+        "main_text_matched_substrings": [
+          {
+            "length": 7,
+            "offset": 0
+          }
+        ],
+        "secondary_text": "Charlottenstraße, Berlin, Germany",
+        "secondary_text_matched_substrings": [
+          {
+            "length": 6,
+            "offset": 18
+          }
+        ]
+      },
+      "terms": [
+        {
+          "offset": 0,
+          "value": "Germany - Land of Ideas"
+        },
+        {
+          "offset": 25,
+          "value": "Charlottenstraße"
+        },
+        {
+          "offset": 43,
+          "value": "Berlin"
+        },
+        {
+          "offset": 51,
+          "value": "Germany"
+        }
+      ],
+      "types": [
+        "point_of_interest",
+        "establishment"
+      ]
+    }
+  ],
+  "status": "OK"
+}

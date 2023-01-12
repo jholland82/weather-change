@@ -48,6 +48,13 @@ h2 {
 
 }
 
+.location-card {
+  margin: 10px;
+  border: 1px solid white;
+  color: white;
+  font-size: calc(12px + 2vmin);
+}
+
 .main-body {
   color: white;
   font-size: calc(12px + 2vmin);

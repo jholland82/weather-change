@@ -1,6 +1,6 @@
 import './App.css';
-import { TitleContainer } from './components/containers/jhTitleContainer'
-import { AppContainer } from './components/containers/jhAppContainer'
+import { TitleContainer } from './components/containers/TitleContainer'
+import { AppContainer } from './components/containers/AppContainer'
 
 function App() {
   const body = {

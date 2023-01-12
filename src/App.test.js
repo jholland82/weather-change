@@ -1,8 +1,15 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
+import { TitleContainer  } from './components/containers/TitleContainer'
 
-test('renders learn react link', () => {
+test('renders heading', () => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+  const headingElement = screen.getByRole('heading');
+  expect(headingElement).toBeInTheDocument();
 });
+
+test('title is rendered', () => {
+  render(<App />);
+  const headingElement = screen.getByText('Weather Change');
+  expect(headingElement).toBeInTheDocument();
+})

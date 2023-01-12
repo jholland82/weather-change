@@ -1,4 +1,4 @@
-import SearchContainer from './jhSearchContainer'
+import SearchContainer from './SearchContainer'
 
 export function AppContainer(props) {
   const { body } = props;

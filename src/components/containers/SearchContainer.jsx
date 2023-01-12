@@ -1,4 +1,4 @@
-import SearchInput from '../inputs/jhSearchInput'
+import SearchInput from '../inputs/SearchInput'
 
 export function SearchContainer(props) {
   const { body } = props;

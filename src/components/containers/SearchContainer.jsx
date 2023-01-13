@@ -6,7 +6,9 @@ export function SearchContainer(props) {
   return (
     <div className="main-body">
       { body }
-      <SearchInput searchPlaces={searchPlaces} getLocations={getLocations}/>
+      <div className='search-input'>
+        <SearchInput searchPlaces={searchPlaces} getLocations={getLocations}/>
+      </div>
     </div>
   )
 }

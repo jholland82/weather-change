@@ -1,17 +1,15 @@
 import React, {useEffect, useState} from 'react';
 import PlaceContainer from './PlaceContainer';
-import SearchContainer from './SearchContainer';
 import TitleContainer from './TitleContainer'
 import WeatherContainer from './WeatherContainer';
 import {findPlace} from '../../services/findplace';
 import {historicalweather} from '../../services/historicalweather';
-import {searchPlaces} from '../../services/autocomplete';
 
 export function AppContainer(props) {
   const { body } = props;
   const [locations, getLocations] = useState([]);
-  const [place, getPlace] = useState({});
-  const [weather, getWeather] = useState([]);
+  const [place, setPlace] = useState({});
+  const [weather, setWeather] = useState([]);
   const [displayWeather, setDisplayWeather] = useState(false)
   const [lat, setLat] = useState();
   const [long, setLong] = useState();
@@ -20,9 +18,9 @@ export function AppContainer(props) {
     locations: locations,
     getLocations: getLocations,
     place: place,
-    getPlace: getPlace,
+    setPlace: setPlace,
     weather: weather,
-    getWeather: getWeather,
+    setWeather: setWeather,
     displayWeather: displayWeather,
     setDisplayWeather: setDisplayWeather,
     lat: lat,
@@ -40,10 +38,9 @@ export function AppContainer(props) {
       <header>
         <TitleContainer title="Weather Change" className="App-header" appState={appState}/>
       </header>
-      <SearchContainer body={body.searchBody} searchPlaces={searchPlaces} getLocations={appState.getLocations}/>
       { displayWeather === false
-      ? <PlaceContainer findPlace={findPlace} appState={appState}/>
-      : <WeatherContainer weather={appState.weather} />
+        ? <PlaceContainer findPlace={findPlace} appState={appState} body={body.searchBody}/>
+        : <WeatherContainer appState={appState} />
       }
     </div>
   )

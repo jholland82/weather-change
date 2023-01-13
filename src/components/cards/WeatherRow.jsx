@@ -8,7 +8,7 @@ export function WeatherRow(props) {
     <div className='weather-row'>
       <div>{convertDate(data.dt)}</div>
       <div>{convertTemp(data.temp)}</div>
-      <div>{data.humidity}%</div>
+      <div>{data.humidity}% Humidity</div>
       <div>
         <img src={buildIconUrl(data.weather[0].icon)} alt={data.weather[0].description}/>
       </div>

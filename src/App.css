@@ -40,6 +40,10 @@ h2 {
   color: orange;
 }
 
+.center {
+  text-align: center;
+}
+
 .location-card {
   margin: 10px;
   border: 1px solid white;
@@ -57,17 +61,62 @@ h2 {
   height: calc(20px + 2vmin);
 }
 
+.search-input {
+  text-align: center;
+}
+
 .weather-card {
   margin: 10px;
   border: 1px solid white;
+  border-radius: 10px;
   color: white;
+}
+
+.weather-header {
+  padding: 10px;
+  font-size: calc(12px + 2vmin);
+  text-decoration: underline;
 }
 
 .weather-row {
   display: grid;
   align-items: center;
   grid-template-columns: [first] 25% [line2] 25% [line3] 25% [last] 25%;
-  background-color: navy;
+}
+
+.weather-row:nth-child(1) {
+  background-color: #0aa879;
+}
+.weather-row:nth-child(2) {
+  background-color: #009b80;
+}
+.weather-row:nth-child(3) {
+  background-color: #008b83;
+}
+.weather-row:nth-child(4) {
+  background-color: #007f82;
+}
+.weather-row:nth-child(5) {
+  background-color: #00717d;
+}
+.weather-row:nth-child(6) {
+  background-color: #06373;
+}
+.weather-row:nth-child(7) {
+  background-color: #1e5567;
+}
+.weather-row:nth-child(8) {
+  background-color: #2a4858;
+}
+
+.weather-row:first-child {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.weather-row:last-child {
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 
 .main-body {

@@ -33,10 +33,10 @@ export function historicalweather(appState) {
   axios.get('http://localhost:3004/weather').then(res => {
     weatherData[0] = res.data[0].data[0]
     weatherData[1] = res.data[1].data[0]
-    appState.getWeather(weatherData);
+    appState.setWeather(weatherData);
   })
 
-  //appState.getWeather(weatherData);
+  //appState.setWeather(weatherData);
 }
 
 export default historicalweather;

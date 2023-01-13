@@ -1,43 +1,50 @@
-import React, {useState} from 'react';
-import LocationContainer from './LocationContainer'
-import SearchContainer from './SearchContainer'
-
-import axios from 'axios';
+import React, {useEffect, useState} from 'react';
+import PlaceContainer from './PlaceContainer';
+import SearchContainer from './SearchContainer';
+import TitleContainer from './TitleContainer'
+import WeatherContainer from './WeatherContainer';
+import {findPlace} from '../../services/findplace';
+import {historicalweather} from '../../services/historicalweather';
+import {searchPlaces} from '../../services/autocomplete';
 
 export function AppContainer(props) {
-  var locationData;
   const { body } = props;
-  const [locations, getLocations] = useState([{"description": "Berlin"}]);
+  const [locations, getLocations] = useState([]);
+  const [place, getPlace] = useState({});
+  const [weather, getWeather] = useState([]);
+  const [displayWeather, setDisplayWeather] = useState(false)
+  const [lat, setLat] = useState();
+  const [long, setLong] = useState();
 
-  const buildLocations = () => {
-    locationData = locations.map((data) => {
-      return(
-        <div>{data.description}</div>
-      )
-    })
-  }
-
-  const handleTypeAhead = (event) => {
-    //if (event.key !== 'Enter') return;
-
-    const locationValue = event.target.value;
-
-    if (locationValue.length < 3) return;
-
-    axios.get(`http://localhost:3004/predictions`)
-         .then(res => {
-           getLocations(res.data);
-           //console.log(locationValue);
-           //console.log(locations);
-           buildLocations();
-           console.log(locationData);
-         })
+  const appState = {
+    locations: locations,
+    getLocations: getLocations,
+    place: place,
+    getPlace: getPlace,
+    weather: weather,
+    getWeather: getWeather,
+    displayWeather: displayWeather,
+    setDisplayWeather: setDisplayWeather,
+    lat: lat,
+    setLat: setLat,
+    long: long,
+    setLong: setLong
   };
+
+  useEffect(() => {
+    historicalweather(appState);
+  }, [displayWeather]);
 
   return (
     <div className='app-container'>
-      <SearchContainer body={body.searchBody} handleTypeAhead={handleTypeAhead} />
-      <LocationContainer locations={locations}/>
+      <header>
+        <TitleContainer title="Weather Change" className="App-header" appState={appState}/>
+      </header>
+      <SearchContainer body={body.searchBody} searchPlaces={searchPlaces} getLocations={appState.getLocations}/>
+      { displayWeather === false
+      ? <PlaceContainer findPlace={findPlace} appState={appState}/>
+      : <WeatherContainer weather={appState.weather} />
+      }
     </div>
   )
 }

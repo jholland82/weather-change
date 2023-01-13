@@ -1,12 +1,12 @@
 import SearchInput from '../inputs/SearchInput'
 
 export function SearchContainer(props) {
-  const { body, handleTypeAhead } = props;
+  const { body, searchPlaces, getLocations } = props;
 
   return (
     <div className="main-body">
       { body }
-      <SearchInput handleTypeAhead={handleTypeAhead} />
+      <SearchInput searchPlaces={searchPlaces} getLocations={getLocations}/>
     </div>
   )
 }

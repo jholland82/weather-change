@@ -23,12 +23,8 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-size: calc(10px + 2vmin);
+  font-size: calc(20px + 2vmin);
   color: white;
-}
-
-.App-link {
-  color: #61dafb;
 }
 
 @keyframes App-logo-spin {
@@ -44,15 +40,34 @@ h2 {
   color: orange;
 }
 
-.app-container {
-
-}
-
 .location-card {
   margin: 10px;
   border: 1px solid white;
   color: white;
   font-size: calc(12px + 2vmin);
+  cursor: pointer;
+}
+
+.reset-button {
+  border: none;
+  color: white;
+  margin: 10px;
+  background-color: inherit;
+  font-size: calc(12px + 2vmin);
+  height: calc(20px + 2vmin);
+}
+
+.weather-card {
+  margin: 10px;
+  border: 1px solid white;
+  color: white;
+}
+
+.weather-row {
+  display: grid;
+  align-items: center;
+  grid-template-columns: [first] 25% [line2] 25% [line3] 25% [last] 25%;
+  background-color: navy;
 }
 
 .main-body {
@@ -65,7 +80,9 @@ h2 {
 .title-container {
   display: grid;
   margin-top: 20px;
-  grid-template-columns: [first] 75% [line2] 25%;
+  align-items: center;
+  grid-template-columns: [first] 20% [line2] 55% [last] 25%;
+  font-size: calc(12px + 2vmin);
 }
 
 #location-search {

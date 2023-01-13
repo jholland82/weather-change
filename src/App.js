@@ -1,5 +1,5 @@
 import './App.css';
-import { TitleContainer } from './components/containers/TitleContainer'
+
 import { AppContainer } from './components/containers/AppContainer'
 
 function App() {
@@ -10,9 +10,6 @@ function App() {
 
   return (
     <div className="App">
-      <header>
-        <TitleContainer title="Weather Change" className="App-header"/>
-      </header>
       <AppContainer className="app-container" body={body}/>
     </div>
   );

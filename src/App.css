@@ -73,39 +73,39 @@ h2 {
 }
 
 .weather-header {
+  background-color: #0aa879;
   padding: 10px;
+  font-weight: 600;
   font-size: calc(12px + 2vmin);
   text-decoration: underline;
 }
 
-.weather-row {
+.weather-row-content {
   display: grid;
   align-items: center;
   grid-template-columns: [first] 25% [line2] 25% [line3] 25% [last] 25%;
+
 }
 
-.weather-row:nth-child(1) {
-  background-color: #0aa879;
-}
-.weather-row:nth-child(2) {
+.weather-row-content:nth-child(1) {
   background-color: #009b80;
 }
-.weather-row:nth-child(3) {
+.weather-row-content:nth-child(2) {
   background-color: #008b83;
 }
-.weather-row:nth-child(4) {
+.weather-row-content:nth-child(3) {
   background-color: #007f82;
 }
-.weather-row:nth-child(5) {
+.weather-row-content:nth-child(4) {
   background-color: #00717d;
 }
-.weather-row:nth-child(6) {
-  background-color: #06373;
+.weather-row-content:nth-child(5) {
+  background-color: #006373;
 }
-.weather-row:nth-child(7) {
+.weather-row-content:nth-child(6) {
   background-color: #1e5567;
 }
-.weather-row:nth-child(8) {
+.weather-row-content:nth-child(7) {
   background-color: #2a4858;
 }
 

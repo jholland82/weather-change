@@ -1,8 +1,8 @@
 export function SearchInput(props) {
-  const { searchPlaces, getLocations} = props;
+  const { searchPlaces, setLocations} = props;
 
   const searchLocations = (e) => {
-    searchPlaces(e, getLocations)
+    searchPlaces(e, setLocations)
   }
 
   return (

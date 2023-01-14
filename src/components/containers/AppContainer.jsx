@@ -7,16 +7,16 @@ import {historicalweather} from '../../services/historicalweather';
 
 export function AppContainer(props) {
   const { body } = props;
-  const [locations, getLocations] = useState([]);
+  const [displayWeather, setDisplayWeather] = useState(false)
+  const [locations, setLocations] = useState([]);
   const [place, setPlace] = useState({});
   const [weather, setWeather] = useState([]);
-  const [displayWeather, setDisplayWeather] = useState(false)
   const [lat, setLat] = useState();
   const [long, setLong] = useState();
 
   const appState = {
     locations: locations,
-    getLocations: getLocations,
+    setLocations: setLocations,
     place: place,
     setPlace: setPlace,
     weather: weather,
@@ -40,7 +40,7 @@ export function AppContainer(props) {
       </header>
       { displayWeather === false
         ? <PlaceContainer findPlace={findPlace} appState={appState} body={body.searchBody}/>
-        : <WeatherContainer appState={appState} />
+        : <WeatherContainer weather={appState.weather} place={appState.place} />
       }
     </div>
   )

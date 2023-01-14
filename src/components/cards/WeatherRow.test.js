@@ -29,6 +29,12 @@ test('temp is rendered', () => {
 
 test('humidity is rendered', () => {
   render(<WeatherRow data={data} />);
-  const textElement = screen.getByText(data.humidity + '%');
+  const textElement = screen.getByText(data.humidity + '% Humidity');
   expect(textElement).toBeInTheDocument();
+})
+
+test('weather icon is rendered', () => {
+  render(<WeatherRow data={data} />);
+  const imgElement = screen.getByAltText(/overcast/i);
+  expect(imgElement).toBeInTheDocument();
 })

@@ -5,7 +5,7 @@ export function WeatherRow(props) {
   const { data } = props;
 
   return (
-    <div className='weather-row'>
+    <div className='weather-row weather-row-content'>
       <div>{convertDate(data.dt)}</div>
       <div>{convertTemp(data.temp)}</div>
       <div>{data.humidity}% Humidity</div>

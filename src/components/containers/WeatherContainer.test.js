@@ -1,6 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import { WeatherContainer  } from './WeatherContainer'
 
+const place = "Berlin, Germany"
 const weather = [
   { "dt": "1673620370",
     "temp": 40.3,
@@ -24,7 +25,7 @@ const weather = [
 ]
 
 test('renders heading', () => {
-  render(<WeatherContainer weather={weather}/>);
-  const headingElement = screen.getByText('Header');
+  render(<WeatherContainer place={place} weather={weather}/>);
+  const headingElement = screen.getByText(/Berlin, Germany/i);
   expect(headingElement).toBeInTheDocument();
 });

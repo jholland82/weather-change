@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export function historicalweather(appState) {
-  const arrayOfYears = [1, 2]; //, 5, 10, 20, 40];
+  const arrayOfYears = [1, 2, 5, 10, 20, 40];
   const lat = 52.52000659999999;
   const lon = 13.404954;
   const units = 'imperial';
@@ -25,18 +25,28 @@ export function historicalweather(appState) {
   //   })
   // }
 
-  // buildRequestUrls().map((url, index) => {
-  //   axios.get(url, { responseType: 'json' }).then(res => {
-  //     weatherData[index] = res.data.data[0]
+  // const promiseFunction = () => {
+  //   return new Promise(resolve => {
+  //     setTimeout(() => resolve('222'), 100)
+  //   })
+  // }
+
+  // const requestArr = buildRequestUrls().map(async (url, index) => {
+  //   let waitForData = await promiseFunction(url);
+  //   return axios.get(url, { responseType: 'json' }).then(res => {
+  //     return res.data.data[0]
   //   })
   // })
+
+  // Promise.all(requestArr).then((result) => {
+  //   appState.setWeather(result);
+  // })
+
   axios.get('http://localhost:3004/weather').then(res => {
     weatherData[0] = res.data[0].data[0]
     weatherData[1] = res.data[1].data[0]
     appState.setWeather(weatherData);
   })
-
-  //appState.setWeather(weatherData);
 }
 
 export default historicalweather;

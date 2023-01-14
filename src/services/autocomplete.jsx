@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export function searchPlaces(event, getLocations) {
+export function searchPlaces(event, setLocations) {
   if (event.key !== 'Enter') return;
 
   const locationValue = event.target.value;
@@ -9,7 +9,7 @@ export function searchPlaces(event, getLocations) {
 
   axios.get(`http://localhost:3004/predictions`)
        .then(res => {
-         getLocations(res.data);
+         setLocations(res.data);
        })
 };
 

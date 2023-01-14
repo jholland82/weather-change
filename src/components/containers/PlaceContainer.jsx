@@ -7,7 +7,7 @@ export function PlaceContainer(props) {
 
   return (
     <div>
-      <SearchContainer body={body} searchPlaces={searchPlaces} getLocations={appState.getLocations}/>
+      <SearchContainer body={body} searchPlaces={searchPlaces} setLocations={appState.setLocations}/>
       {appState.locations.map((data, index) => <PlaceCard
                                        key={index}
                                        location={data}

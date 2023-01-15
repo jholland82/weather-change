@@ -1,8 +1,8 @@
 export function PlaceCard(props) {
-  const {clickHandler, location, appState} = props;
+  const {clickHandler, error, location, placeState} = props;
 
   const findPlace = (e) => {
-    clickHandler(e, appState);
+    clickHandler(e, error, placeState);
   }
 
   return (

@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export function searchPlaces(event, setLocations) {
+export function searchPlaces(event, setError, setLocations) {
   if (event.key !== 'Enter') return;
 
   const locationValue = event.target.value;
@@ -10,6 +10,14 @@ export function searchPlaces(event, setLocations) {
   axios.get(`http://localhost:3004/predictions`)
        .then(res => {
          setLocations(res.data);
+         setError({
+           error_triggered: false
+         });
+       }).catch((error) => {
+         setError({
+           error_message: "Unable to retrieve locations from the Endpoint",
+           error_triggered: true
+         })
        })
 };
 

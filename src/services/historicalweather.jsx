@@ -1,12 +1,15 @@
 import axios from 'axios';
+import {resetErrors} from '../utils/errors'
 
-export function historicalweather(appState) {
+export function historicalweather(setError, setWeather) {
   const arrayOfYears = [1, 2, 5, 10, 20, 40];
   const lat = 52.52000659999999;
   const lon = 13.404954;
   const units = 'imperial';
   let weatherData = [];
 
+  // Do the math to convert the arrayOfYears into the exact dates we want to use.
+  // Uses Unix epoch timestamp
   const buildArrayOfYears = () => {
     return arrayOfYears.map(year => {
       const date = new Date();
@@ -39,13 +42,19 @@ export function historicalweather(appState) {
   // })
 
   // Promise.all(requestArr).then((result) => {
-  //   appState.setWeather(result);
+  //   setWeather(result);
   // })
 
   axios.get('http://localhost:3004/weather').then(res => {
     weatherData[0] = res.data[0].data[0]
     weatherData[1] = res.data[1].data[0]
-    appState.setWeather(weatherData);
+    setWeather(weatherData);
+    resetErrors(setError);
+   }).catch((error) => {
+     setError({
+       error_message: "Unable to retrieve weather information from the Endpoint",
+       error_triggered: true
+     })
   })
 }
 

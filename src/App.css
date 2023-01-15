@@ -1,5 +1,5 @@
 body {
-  background-color: #282c34;
+  background-color: #172a33;
 }
 
 .App {
@@ -18,7 +18,6 @@ body {
 }
 
 .App-header {
-  background-color: #282c34;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -44,6 +43,17 @@ h2 {
   text-align: center;
 }
 
+.error-message {
+  align-items: center;
+  border: 1px solid #ffffff;
+  color: white;
+  font-weight: 600;
+  margin: 20px auto 0 auto;
+  padding: 10px;
+  max-width: 600px;
+  background-color: #871528;
+}
+
 .location-card {
   margin: 10px;
   border: 1px solid white;
@@ -55,7 +65,8 @@ h2 {
 .reset-button {
   border: none;
   color: white;
-  margin: 10px;
+  margin: 5px;
+  font-weight: 600;
   background-color: inherit;
   font-size: calc(12px + 2vmin);
   height: calc(20px + 2vmin);

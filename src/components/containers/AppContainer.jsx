@@ -1,46 +1,69 @@
 import React, {useEffect, useState} from 'react';
+
+import ErrorContainer from './ErrorContainer';
 import PlaceContainer from './PlaceContainer';
 import TitleContainer from './TitleContainer'
 import WeatherContainer from './WeatherContainer';
 import {findPlace} from '../../services/findplace';
 import {historicalweather} from '../../services/historicalweather';
+import {useIsMount} from '../../utils/useIsMount';
 
 export function AppContainer(props) {
   const { body } = props;
+  const isMount = useIsMount();
   const [displayWeather, setDisplayWeather] = useState(false)
+  const [error, setError] = useState({
+    error_triggered: false
+  });
+  const [geometry, setGeometry] = useState({
+    lat: "",
+    lon: ""
+  });
   const [locations, setLocations] = useState([]);
   const [place, setPlace] = useState({});
   const [weather, setWeather] = useState([]);
-  const [lat, setLat] = useState();
-  const [long, setLong] = useState();
 
-  const appState = {
+  const locationState = {
     locations: locations,
-    setLocations: setLocations,
-    place: place,
+    setLocations: setLocations
+  }
+
+  const placeState = {
+    setGeometry: setGeometry,
     setPlace: setPlace,
-    weather: weather,
-    setWeather: setWeather,
-    displayWeather: displayWeather,
-    setDisplayWeather: setDisplayWeather,
-    lat: lat,
-    setLat: setLat,
-    long: long,
-    setLong: setLong
-  };
+    setDisplayWeather: setDisplayWeather
+  }
 
   useEffect(() => {
-    historicalweather(appState);
+    if (isMount) {
+    } else {
+      historicalweather(setError, setWeather);
+    }
   }, [displayWeather]);
 
   return (
     <div className='app-container'>
       <header>
-        <TitleContainer title="Weather Change" className="App-header" appState={appState}/>
+        <TitleContainer
+          title="Weather Change"
+          className="App-header"
+          setDisplayWeather={setDisplayWeather}
+          setError={setError} />
       </header>
       { displayWeather === false
-        ? <PlaceContainer findPlace={findPlace} appState={appState} body={body.searchBody}/>
-        : <WeatherContainer weather={appState.weather} place={appState.place} />
+        ? <PlaceContainer
+            body={body.searchBody}
+            findPlace={findPlace}
+            locationState={locationState}
+            placeState={placeState}
+            setError={setError} />
+        : <WeatherContainer
+            weather={weather}
+            place={place} />
+      }
+
+      { error.error_triggered === true &&
+        <ErrorContainer error={error.error_message} />
       }
     </div>
   )

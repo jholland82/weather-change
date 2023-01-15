@@ -30,9 +30,3 @@ test('displays the correct logo', () => {
   const logoElement = screen.getByAltText('weather logo');
   expect(logoElement).toBeInTheDocument();
 })
-
-test('logo displays as img role', () => {
-  render(<TitleContainer title={title1} appState={appStateMock}/>);
-  const logoElement = screen.getByRole('img')
-  expect(logoElement).toBeInTheDocument();
-})

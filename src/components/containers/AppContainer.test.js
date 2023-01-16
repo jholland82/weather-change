@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, fireEvent, screen } from '@testing-library/react';
+import { render, renderHook, screen } from '@testing-library/react';
 import { AppContainer } from './AppContainer';
 
 const body = "Descriptive Text Goes Here"

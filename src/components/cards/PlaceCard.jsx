@@ -1,16 +1,19 @@
+import currentWeather from '../../services/weather';
+
 export function PlaceCard(props) {
-  const {clickHandler, error, location, placeState} = props;
+  const {error, location, weatherSetState} = props;
 
   const findPlace = (e) => {
-    clickHandler(e, error, placeState);
+    currentWeather(e, error, weatherSetState);
   }
 
   return (
     <div className='location-card'
          onClick={findPlace}
-         data-place-id={location.place_id}
-         data-location={location.description}>
-      <div>{location.description}</div>
+         data-location={location.place_name}
+         data-lon={location.geometry.coordinates[0]}
+         data-lat={location.geometry.coordinates[1]} >
+      <div>{location.place_name}</div>
     </div>
   )
 }

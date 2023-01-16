@@ -57,13 +57,50 @@ describe('Selecting a Location', () => {
   it('Displays weather icon', () => {
     cy.get('img').should('exist')
   })
+
+  it('Displays humidity', () => {
+    cy.contains('Humidity').should('be.visible')
+  })
+
+  describe('Clicking a weather row', () => {
+    beforeEach(() => {
+      cy.contains('Humidity').click()
+    })
+
+    it('Shows pressure', () => {
+      cy.contains('mb').should('be.visible')
+    })
+
+    it('Shows what it feels like', () => {
+      cy.contains('Feels Like').should('be.visible')
+    })
+
+    it('Shows wind speed', () => {
+      cy.contains('mph').should('be.visible')
+    })
+  })
+
+  describe('Clicking Historical Data button', () => {
+    beforeEach(() => {
+      cy.contains('Load').click()
+    })
+
+    it('Loads more rows of data', () => {
+      cy.get('.weather-row').should('have.length', 3)
+    })
+
+    it('Expands new rows', () => {
+      cy.get('.weather-row:last-of-type').click()
+      cy.contains('mph')
+    })
+  })
 })
 
 describe('Clicking Reset', () => {
   beforeEach(() => {
     cy.get('input').type('Berlin{enter}')
     cy.contains('Berlin, Germany').click()
-    cy.get('button').click()
+    cy.get('.reset-button').click()
   })
 
   it('Clears the weather', () => {
@@ -71,7 +108,7 @@ describe('Clicking Reset', () => {
   })
 
   it('Displays the search bar again', () => {
-    cy.get('input').should('be.visible')
+    cy.get('#location-search').should('be.visible')
   })
 })
 
@@ -82,7 +119,7 @@ describe('Reset Button Component', () => {
   })
 
   it('Can click the button', () => {
-    cy.get('button').click()
+    cy.get('.reset-button').click()
     cy.contains('Historical Weather').should('not.exist')
   })
 

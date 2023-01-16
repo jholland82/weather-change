@@ -3,11 +3,19 @@ import { H2 } from '../titles/Title';
 import ResetButton from '../inputs/ResetButton';
 
 export function TitleContainer(props) {
-  const {setDisplayWeather, setError, title} = props;
+  const {setDisplayWeather, setError, setLocations, title} = props;
+
+  const resetApp = () => {
+    setDisplayWeather(false);
+    setError({
+      error_triggered: false
+    });
+    setLocations([]);
+  }
 
   return (
     <div className="title-container">
-      <ResetButton setDisplayWeather={setDisplayWeather} setError={setError} />
+      <ResetButton resetApp={resetApp} />
       <H2 title={title} />
       <img src={logo} className="App-logo" alt="weather logo" />
     </div>

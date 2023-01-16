@@ -1,14 +1,7 @@
 import refreshIcon from '../../assets/refresh.svg';
 
 export function ResetButton(props) {
-  const {setDisplayWeather, setError} = props;
-
-  const resetApp = () => {
-    setDisplayWeather(false);
-    setError({
-      error_triggered: false
-    });
-  }
+  const {resetApp} = props;
 
   return (
     <div onClick={resetApp}>

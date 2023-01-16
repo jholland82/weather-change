@@ -13,7 +13,7 @@ body {
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+    animation: App-logo-spin infinite 10s linear;
   }
 }
 
@@ -27,16 +27,19 @@ body {
 }
 
 @keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  0% {
+    transform: rotate(340deg);
   }
-  to {
-    transform: rotate(360deg);
+  50% {
+    transform: rotate(380deg);
+  }
+  100% {
+    transform: rotate(340deg);
   }
 }
 
 h2 {
-  color: orange;
+  color: #0aa879;
 }
 
 .center {
@@ -46,7 +49,7 @@ h2 {
 .error-message {
   align-items: center;
   border: 1px solid #ffffff;
-  color: white;
+  color: #ffffff;
   font-weight: 600;
   margin: 20px auto 0 auto;
   padding: 10px;
@@ -56,15 +59,15 @@ h2 {
 
 .location-card {
   margin: 10px;
-  border: 1px solid white;
-  color: white;
+  border: 1px solid #ffffff;
+  color: #ffffff;
   font-size: calc(12px + 2vmin);
   cursor: pointer;
 }
 
 .reset-button {
   border: none;
-  color: white;
+  color: #ffffff;
   margin: 5px;
   font-weight: 600;
   background-color: inherit;
@@ -78,9 +81,31 @@ h2 {
 
 .weather-card {
   margin: 10px;
-  border: 1px solid white;
+  border: 1px solid #ffffff;
   border-radius: 10px;
-  color: white;
+  color: #ffffff;
+}
+
+.weather-data {
+  align-items: center;
+  display: grid;
+  grid-template-columns: [first] 25% [line2] 25% [line3] 25% [last] 25%;
+  font-weight: 600;
+}
+
+.weather-data:nth-child(2) {
+  padding-bottom: 10px;
+}
+
+.weather-footer {
+  background-color: #172a33;
+  border-radius: 4px;
+  color: #ffffff;
+  font-size: calc(10px + 2vmin);
+  margin: 5px;
+  padding: 5px;
+  width: 400px;
+  text-align: center;
 }
 
 .weather-header {
@@ -91,41 +116,40 @@ h2 {
   text-decoration: underline;
 }
 
-.weather-row-content {
-  display: grid;
-  align-items: center;
-  grid-template-columns: [first] 25% [line2] 25% [line3] 25% [last] 25%;
-
+.weather-row {
 }
 
 .weather-row-content:nth-child(1) {
-  background-color: #009b80;
+  background-color: #009d7f;
 }
 .weather-row-content:nth-child(2) {
-  background-color: #008b83;
+  background-color: #009182;
 }
 .weather-row-content:nth-child(3) {
-  background-color: #007f82;
+  background-color: #008583;
 }
 .weather-row-content:nth-child(4) {
-  background-color: #00717d;
+  background-color: #007880;
 }
 .weather-row-content:nth-child(5) {
-  background-color: #006373;
+  background-color: #006c7a;
 }
 .weather-row-content:nth-child(6) {
-  background-color: #1e5567;
+  background-color: #0a6071;
 }
 .weather-row-content:nth-child(7) {
+  background-color: #205465;
+}
+.weather-row-content:nth-child(8) {
   background-color: #2a4858;
 }
 
-.weather-row:first-child {
+.weather-row-content:first-child {
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 }
 
-.weather-row:last-child {
+.weather-row-content:last-child {
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
 }

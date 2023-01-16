@@ -1,15 +1,13 @@
 import {useState} from 'react';
 
 import { PlaceCard } from '../cards/PlaceCard'
-import {searchPlaces} from '../../services/autocomplete';
 import SearchContainer from './SearchContainer';
 
 export function PlaceContainer(props) {
   const {
     body,
-    findPlace,
     locationState,
-    placeState,
+    weatherSetState,
     setError
   } = props;
 
@@ -17,14 +15,12 @@ export function PlaceContainer(props) {
     <div>
       <SearchContainer body={body}
                        error={setError}
-                       searchPlaces={searchPlaces}
                        setLocations={locationState.setLocations}/>
       {locationState.locations.map((data, index) => <PlaceCard
+                                                     error={setError}
                                                      key={index}
                                                      location={data}
-                                                     placeState={placeState}
-                                                     error={setError}
-                                                     clickHandler={findPlace}/>)}
+                                                     weatherSetState={weatherSetState}/>)}
     </div>
   )
 }

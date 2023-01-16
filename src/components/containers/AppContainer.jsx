@@ -1,23 +1,15 @@
-import React, {useEffect, useState} from 'react';
+import {useState} from 'react';
 
 import ErrorContainer from './ErrorContainer';
 import PlaceContainer from './PlaceContainer';
 import TitleContainer from './TitleContainer'
 import WeatherContainer from './WeatherContainer';
-import {findPlace} from '../../services/findplace';
-import {historicalweather} from '../../services/historicalweather';
-import {useIsMount} from '../../utils/useIsMount';
 
 export function AppContainer(props) {
   const { body } = props;
-  const isMount = useIsMount();
   const [displayWeather, setDisplayWeather] = useState(false)
   const [error, setError] = useState({
     error_triggered: false
-  });
-  const [geometry, setGeometry] = useState({
-    lat: "",
-    lon: ""
   });
   const [locations, setLocations] = useState([]);
   const [place, setPlace] = useState({});
@@ -28,18 +20,11 @@ export function AppContainer(props) {
     setLocations: setLocations
   }
 
-  const placeState = {
-    setGeometry: setGeometry,
+  const weatherSetState = {
     setPlace: setPlace,
-    setDisplayWeather: setDisplayWeather
+    setDisplayWeather: setDisplayWeather,
+    setWeather: setWeather
   }
-
-  useEffect(() => {
-    if (isMount) {
-    } else {
-      historicalweather(setError, setWeather);
-    }
-  }, [displayWeather]);
 
   return (
     <div className='app-container'>
@@ -48,18 +33,20 @@ export function AppContainer(props) {
           title="Weather Change"
           className="App-header"
           setDisplayWeather={setDisplayWeather}
+          setLocations={setLocations}
           setError={setError} />
       </header>
       { displayWeather === false
         ? <PlaceContainer
             body={body.searchBody}
-            findPlace={findPlace}
             locationState={locationState}
-            placeState={placeState}
+            weatherSetState={weatherSetState}
             setError={setError} />
         : <WeatherContainer
+            place={place}
+            setError={setError}
             weather={weather}
-            place={place} />
+            weatherSetState={weatherSetState} />
       }
 
       { error.error_triggered === true &&

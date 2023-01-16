@@ -1,6 +1,5 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
-import { TitleContainer  } from './components/containers/TitleContainer'
 
 test('renders heading', () => {
   render(<App />);

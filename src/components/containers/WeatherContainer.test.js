@@ -24,8 +24,12 @@ const weather = [
   }
 ]
 
+const error = {
+  error_triggered: false
+}
+
 test('renders heading', () => {
-  render(<WeatherContainer place={place} weather={weather}/>);
+  render(<WeatherContainer place={place} weather={weather} error={error} />);
   const headingElement = screen.getByText(/Berlin, Germany/i);
   expect(headingElement).toBeInTheDocument();
 });

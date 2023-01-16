@@ -1,38 +1,22 @@
 import React, {useEffect, useState} from 'react';
 
 import ErrorContainer from './ErrorContainer';
-import PlaceContainer from './PlaceContainer';
+import SearchContainer from './SearchContainer';
 import TitleContainer from './TitleContainer'
 import WeatherContainer from './WeatherContainer';
-import {findPlace} from '../../services/findplace';
 import {historicalweather} from '../../services/historicalweather';
 import {useIsMount} from '../../utils/useIsMount';
 
 export function AppContainer(props) {
+  const apiKey = process.env.REACT_APP_PLACES_SECRET;
   const { body } = props;
   const isMount = useIsMount();
   const [displayWeather, setDisplayWeather] = useState(false)
   const [error, setError] = useState({
     error_triggered: false
   });
-  const [geometry, setGeometry] = useState({
-    lat: "",
-    lon: ""
-  });
-  const [locations, setLocations] = useState([]);
   const [place, setPlace] = useState({});
   const [weather, setWeather] = useState([]);
-
-  const locationState = {
-    locations: locations,
-    setLocations: setLocations
-  }
-
-  const placeState = {
-    setGeometry: setGeometry,
-    setPlace: setPlace,
-    setDisplayWeather: setDisplayWeather
-  }
 
   useEffect(() => {
     if (isMount) {
@@ -51,15 +35,18 @@ export function AppContainer(props) {
           setError={setError} />
       </header>
       { displayWeather === false
-        ? <PlaceContainer
+        ? <SearchContainer
+            apiKey={apiKey}
             body={body.searchBody}
-            findPlace={findPlace}
-            locationState={locationState}
-            placeState={placeState}
-            setError={setError} />
+            error={error}
+            setDisplayWeather={setDisplayWeather}
+            setError={setError}
+            setPlace={setPlace}
+            setWeather={setWeather}/>
         : <WeatherContainer
-            weather={weather}
-            place={place} />
+            error={error}
+            place={place}
+            weather={weather} />
       }
 
       { error.error_triggered === true &&

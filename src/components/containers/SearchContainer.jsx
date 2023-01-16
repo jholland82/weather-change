@@ -1,15 +1,36 @@
-import SearchInput from '../inputs/SearchInput'
+import Autocomplete from 'react-google-autocomplete';
+import historicalweather from '../../services/historicalweather'
 
 export function SearchContainer(props) {
-  const { body, error, searchPlaces, setLocations } = props;
+  const { apiKey,
+          body,
+          error,
+          setError,
+          setPlace,
+          setWeather,
+          setDisplayWeather } = props;
+
+  const findWeather = (place, geometry) => {
+    setPlace(place);
+    historicalweather(error, geometry, setError, setDisplayWeather, setWeather);
+  }
 
   return (
     <div className="main-body">
-      { body }
-      <div className='search-input'>
-        <SearchInput error={error}
-                     searchPlaces={searchPlaces}
-                     setLocations={setLocations}/>
+      <div className='help-text'>
+        { body }
+      </div>
+      <div>
+        <Autocomplete
+          apiKey={apiKey}
+          onPlaceSelected={(place) => {
+            findWeather(place.formatted_address,
+                        {
+                          lat: place.geometry.location.lat(),
+                          lon: place.geometry.location.lng()
+                        })
+          }}
+        />
       </div>
     </div>
   )

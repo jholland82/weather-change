@@ -54,6 +54,10 @@ h2 {
   background-color: #871528;
 }
 
+.help-text {
+  padding: 20px;
+}
+
 .location-card {
   margin: 10px;
   border: 1px solid white;
@@ -62,9 +66,17 @@ h2 {
   cursor: pointer;
 }
 
+.main-body {
+  color: white;
+  font-size: calc(12px + 2vmin);
+  padding: 0 calc(12px + 2vmin);
+  text-align: center;
+}
+
 .reset-button {
   border: none;
   color: white;
+  cursor: pointer;
   margin: 5px;
   font-weight: 600;
   background-color: inherit;
@@ -74,6 +86,14 @@ h2 {
 
 .search-input {
   text-align: center;
+}
+
+.title-container {
+  display: grid;
+  margin-top: 20px;
+  align-items: center;
+  grid-template-columns: [first] 20% [line2] 55% [last] 25%;
+  font-size: calc(12px + 2vmin);
 }
 
 .weather-card {
@@ -128,21 +148,6 @@ h2 {
 .weather-row:last-child {
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
-}
-
-.main-body {
-  color: white;
-  font-size: calc(12px + 2vmin);
-  padding: 0 calc(12px + 2vmin);
-  text-align: left;
-}
-
-.title-container {
-  display: grid;
-  margin-top: 20px;
-  align-items: center;
-  grid-template-columns: [first] 20% [line2] 55% [last] 25%;
-  font-size: calc(12px + 2vmin);
 }
 
 #location-search {

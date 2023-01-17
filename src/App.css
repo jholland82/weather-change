@@ -103,7 +103,7 @@ h2 {
   font-size: calc(10px + 2vmin);
   margin: 5px;
   padding: 5px;
-  width: 400px;
+  max-width: 400px;
   text-align: center;
 }
 
@@ -113,9 +113,6 @@ h2 {
   font-weight: 600;
   font-size: calc(12px + 2vmin);
   text-decoration: underline;
-}
-
-.weather-row {
 }
 
 .weather-row-content:nth-child(1) {
@@ -157,7 +154,7 @@ h2 {
   color: white;
   font-size: calc(12px + 2vmin);
   padding: 0 calc(12px + 2vmin);
-  text-align: left;
+  text-align: center;
 }
 
 #location-search {

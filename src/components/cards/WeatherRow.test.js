@@ -6,6 +6,7 @@ const data = {
   "td": "1673620370",
   "temp": 40.3,
   "humidity": 90,
+  "feels_like": 88,
   "weather": [
     {
       "icon": "test.png",
@@ -29,7 +30,7 @@ test('temp is rendered', () => {
 
 test('humidity is rendered', () => {
   render(<WeatherRow data={data} />);
-  const textElement = screen.getByText(data.humidity + '% Humidity');
+  const textElement = screen.getByText(/Feels Like/);
   expect(textElement).toBeInTheDocument();
 })
 

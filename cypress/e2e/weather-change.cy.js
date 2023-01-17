@@ -54,25 +54,26 @@ describe('Selecting a Location', () => {
     cy.contains('Historical Weather').should('be.visible')
   })
 
+  it('Shows what it feels like', () => {
+    cy.contains('Feels Like').should('be.visible')
+  })
+
   it('Displays weather icon', () => {
     cy.get('img').should('exist')
   })
 
-  it('Displays humidity', () => {
-    cy.contains('Humidity').should('be.visible')
-  })
 
   describe('Clicking a weather row', () => {
     beforeEach(() => {
-      cy.contains('Humidity').click()
+      cy.contains('Feels Like').click()
     })
 
     it('Shows pressure', () => {
       cy.contains('mb').should('be.visible')
     })
 
-    it('Shows what it feels like', () => {
-      cy.contains('Feels Like').should('be.visible')
+    it('Displays humidity', () => {
+      cy.contains('Humidity').should('be.visible')
     })
 
     it('Shows wind speed', () => {

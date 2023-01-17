@@ -11,6 +11,8 @@ export function WeatherContainer(props) {
     weatherSetState
   } = props;
 
+  const weatherHelpText = 'To view more weather info please click the weather row.  To see historical data click the button below.';
+
   const loadHistoricalData = () => {
     const geometry = {
       lat: weather.geometry.lat,
@@ -20,15 +22,18 @@ export function WeatherContainer(props) {
   }
 
   return(
-    <div className='weather-card'>
-      <div className='weather-header weather-row-content center'>Historical Weather In {place}</div>
-      { weather.weatherData.length > 0 && weather.weatherData.map((data, index) => <WeatherRow
-                                      key={index}
-                                      data={data} />)}
-      { weather.weatherData.length === 1 &&
-        <WeatherFooter loadHistoricalData={loadHistoricalData} />
-      }
-    </div>
+    <React.Fragment>
+      <p className='main-body'>{weatherHelpText}</p>
+      <div className='weather-card'>
+        <div className='weather-header weather-row-content center'>Historical Weather In {place}</div>
+        { weather.weatherData.length > 0 && weather.weatherData.map((data, index) => <WeatherRow
+                                        key={index}
+                                        data={data} />)}
+        { weather.weatherData.length === 1 &&
+          <WeatherFooter loadHistoricalData={loadHistoricalData} />
+        }
+      </div>
+    </React.Fragment>
   )
 }
 

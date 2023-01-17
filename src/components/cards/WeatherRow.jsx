@@ -17,7 +17,7 @@ export function WeatherRow(props) {
       <div className='weather-data'>
         <div>{convertDate(data.dt)}</div>
         <div>{convertTemp(data.temp)}</div>
-        <div>{data.humidity}% Humidity</div>
+        <div>Feels Like {convertTemp(data.feels_like)}</div>
         <div>
           <img src={buildIconUrl(data.weather[0].icon)} alt={data.weather[0].description}/>
         </div>
@@ -25,7 +25,7 @@ export function WeatherRow(props) {
       { moreWeather === true &&
         <div className='weather-data'>
           <div>{data.pressure} mb</div>
-          <div>Feels Like {convertTemp(data.feels_like)}</div>
+          <div>{data.humidity}% Humidity</div>
           <div>{data.wind_speed} mph</div>
           <div>{handlePrecip(data)}</div>
         </div>

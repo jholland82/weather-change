@@ -2,7 +2,6 @@ import axios from 'axios';
 
 export function searchPlaces(event, setError, setLocations) {
   const SEARCH_LIMIT = 5;
-  if (event.key !== 'Enter') return;
 
   const locationValue = event.target.value;
 

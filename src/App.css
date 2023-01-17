@@ -100,7 +100,7 @@ h2 {
   background-color: #172a33;
   border-radius: 4px;
   color: #ffffff;
-  font-size: calc(10px + 2vmin);
+  font-size: calc(12px + 1vmin);
   margin: 5px;
   padding: 5px;
   max-width: 400px;

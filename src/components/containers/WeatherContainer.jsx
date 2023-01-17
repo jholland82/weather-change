@@ -1,3 +1,5 @@
+import React from 'react';
+
 import WeatherFooter from '../cards/WeatherFooter';
 import WeatherRow from '../cards/WeatherRow';
 import { historicalWeather } from '../../services/weather';

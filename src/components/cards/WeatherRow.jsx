@@ -1,7 +1,7 @@
 import {useState} from 'react';
 
 import convertDate from '../../utils/time.js';
-import convertTemp, { buildIconUrl, handlePrecip } from '../../utils/weather.js';
+import convertTemp, { buildIconUrl, handlePrecip } from '../../utils/weatherHelper.js';
 
 export function WeatherRow(props) {
   const { data } = props;

@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import React from 'react';
 
 import { PlaceCard } from '../cards/PlaceCard'
 import SearchContainer from './SearchContainer';
@@ -12,7 +12,7 @@ export function PlaceContainer(props) {
   } = props;
 
   return (
-    <div>
+    <React.Fragment>
       <SearchContainer body={body}
                        error={setError}
                        setLocations={locationState.setLocations}/>
@@ -21,7 +21,7 @@ export function PlaceContainer(props) {
                                                      key={index}
                                                      location={data}
                                                      weatherSetState={weatherSetState}/>)}
-    </div>
+    </React.Fragment>
   )
 }
 

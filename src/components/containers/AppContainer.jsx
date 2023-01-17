@@ -27,15 +27,12 @@ export function AppContainer(props) {
   }
 
   return (
-    <div className='app-container'>
-      <header>
-        <TitleContainer
-          title="Weather Change"
-          className="App-header"
-          setDisplayWeather={setDisplayWeather}
-          setLocations={setLocations}
-          setError={setError} />
-      </header>
+    <div>
+      <TitleContainer
+        title="Weather Change"
+        setDisplayWeather={setDisplayWeather}
+        setLocations={setLocations}
+        setError={setError} />
       { displayWeather === false
         ? <PlaceContainer
             body={body.searchBody}

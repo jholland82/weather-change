@@ -13,7 +13,7 @@ export function PlaceCard(props) {
          data-location={location.place_name}
          data-lon={location.geometry.coordinates[0]}
          data-lat={location.geometry.coordinates[1]} >
-      <div>{location.place_name}</div>
+      {location.place_name}
     </div>
   )
 }

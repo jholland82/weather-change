@@ -17,15 +17,6 @@ body {
   }
 }
 
-.App-header {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-size: calc(20px + 2vmin);
-  color: white;
-}
-
 @keyframes App-logo-spin {
   0% {
     transform: rotate(340deg);
@@ -44,6 +35,14 @@ h2 {
 
 .center {
   text-align: center;
+}
+
+.title-container {
+  display: grid;
+  margin-top: 20px;
+  align-items: center;
+  grid-template-columns: [first] 25% [line2] 50% [last] 25%;
+  font-size: calc(12px + 2vmin);
 }
 
 .error-message {
@@ -159,14 +158,6 @@ h2 {
   font-size: calc(12px + 2vmin);
   padding: 0 calc(12px + 2vmin);
   text-align: left;
-}
-
-.title-container {
-  display: grid;
-  margin-top: 20px;
-  align-items: center;
-  grid-template-columns: [first] 20% [line2] 55% [last] 25%;
-  font-size: calc(12px + 2vmin);
 }
 
 #location-search {

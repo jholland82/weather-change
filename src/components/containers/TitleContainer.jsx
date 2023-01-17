@@ -14,11 +14,11 @@ export function TitleContainer(props) {
   }
 
   return (
-    <div className="title-container">
+    <header className="title-container">
       <ResetButton resetApp={resetApp} />
       <H2 title={title} />
       <img src={logo} className="App-logo" alt="weather logo" />
-    </div>
+    </header>
   )
 }
 

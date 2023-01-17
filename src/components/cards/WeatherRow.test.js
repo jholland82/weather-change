@@ -1,7 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import WeatherRow from './WeatherRow'
 import convertDate from '../../utils/time'
-import convertTemp from '../../utils/weather'
 
 const data = {
   "td": "1673620370",
@@ -14,6 +13,7 @@ const data = {
     }
   ]
 }
+
 
 test('date is rendered', () => {
   render(<WeatherRow data={data} />);

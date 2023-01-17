@@ -35,7 +35,6 @@ export function historicalWeather(geometry, setError, weather, weatherSetState) 
   const lat = geometry.lat;
   const lon = geometry.lon;
   const units = 'imperial';
-  const weatherData = weather;
 
   const arrayOfYears = [1, 2, 5, 10, 20, 40];
 

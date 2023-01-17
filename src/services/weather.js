@@ -37,7 +37,7 @@ export function historicalWeather(geometry, setError, weather, weatherSetState) 
   const units = 'imperial';
   const weatherData = weather;
 
-  const arrayOfYears = [1, 2]//, 5, 10, 20, 40];
+  const arrayOfYears = [1, 2, 5, 10, 20, 40];
 
   // Do the math to convert the arrayOfYears into the exact dates we want to use.
   // Uses Unix epoch timestamp

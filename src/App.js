@@ -1,6 +1,9 @@
 import './App.css';
 
 import { AppContainer } from './components/containers/AppContainer'
+import { DisplayWeatherProvider } from './context/displayWeatherContext';
+import { ErrorProvider } from './context/errorContext';
+import { WeatherProvider } from './context/weatherContext';
 
 function App() {
   const body = {
@@ -10,7 +13,13 @@ function App() {
 
   return (
     <div className="App">
-      <AppContainer className="app-container" body={body}/>
+      <DisplayWeatherProvider>
+        <WeatherProvider>
+          <ErrorProvider>
+            <AppContainer className="app-container" body={body}/>
+          </ErrorProvider>
+        </WeatherProvider>
+      </DisplayWeatherProvider>
     </div>
   );
 }

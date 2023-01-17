@@ -1,16 +1,15 @@
 import SearchInput from '../inputs/SearchInput'
 import searchPlaces from '../../services/searchplaces';
+import {useError} from '../../context/errorContext';
 
 export function SearchContainer(props) {
-  const {
-    body,
-    error,
-    setLocations
-  } = props;
+  const {body, setLocations} = props;
+
+  const { setError } = useError();
 
   const searchLocations = (e) => {
     document.querySelector('input').defautValue = '';
-    searchPlaces(e, error, setLocations)
+    searchPlaces(e, setError, setLocations)
   }
 
   return (

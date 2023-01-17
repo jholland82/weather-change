@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { render, fireEvent, screen } from '@testing-library/react';
 import WeatherRow from './WeatherRow'
 import convertDate from '../../utils/time'
 
@@ -20,22 +20,22 @@ test('date is rendered', () => {
   render(<WeatherRow data={data} />);
   const textElement = screen.getByText(convertDate(data.dt));
   expect(textElement).toBeInTheDocument();
-})
+});
 
 test('temp is rendered', () => {
   render(<WeatherRow data={data} />);
   const textElement = screen.getByText("40º");
   expect(textElement).toBeInTheDocument();
-})
+});
 
 test('humidity is rendered', () => {
   render(<WeatherRow data={data} />);
   const textElement = screen.getByText(/Feels Like/);
   expect(textElement).toBeInTheDocument();
-})
+});
 
 test('weather icon is rendered', () => {
   render(<WeatherRow data={data} />);
   const imgElement = screen.getByAltText(/overcast/i);
   expect(imgElement).toBeInTheDocument();
-})
+});

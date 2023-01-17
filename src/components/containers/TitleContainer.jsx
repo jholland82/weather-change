@@ -1,9 +1,13 @@
 import logo from '../../assets/Weather.svg';
 import { H2 } from '../titles/Title';
 import ResetButton from '../inputs/ResetButton';
+import {useDisplayWeather} from '../../context/displayWeatherContext';
+import {useError} from '../../context/errorContext';
 
 export function TitleContainer(props) {
-  const {setDisplayWeather, setError, setLocations, title} = props;
+  const { setLocations, title } = props;
+  const { setDisplayWeather } = useDisplayWeather();
+  const { setError } = useError();
 
   const resetApp = () => {
     setDisplayWeather(false);

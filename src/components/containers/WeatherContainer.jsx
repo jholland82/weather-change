@@ -1,15 +1,14 @@
-import React, {useState} from 'react';
 import WeatherFooter from '../cards/WeatherFooter';
 import WeatherRow from '../cards/WeatherRow';
-import {historicalWeather} from '../../services/weather';
+import { historicalWeather } from '../../services/weather';
+import { useError } from '../../context/errorContext';
+import { usePlace } from '../../context/placeContext';
+import { useWeather } from '../../context/weatherContext';
 
-export function WeatherContainer(props) {
-  const {
-    place,
-    setError,
-    weather,
-    weatherSetState
-  } = props;
+export function WeatherContainer() {
+  const { setError } = useError();
+  const { place } = usePlace();
+  const { weather, setWeather } = useWeather();
 
   const weatherHelpText = 'To view more weather info please click the weather row.  To see historical data click the button below.';
 
@@ -18,7 +17,7 @@ export function WeatherContainer(props) {
       lat: weather.geometry.lat,
       lon: weather.geometry.lon
     }
-    historicalWeather(geometry, setError, weather, weatherSetState);
+    historicalWeather(geometry, setError, weather, setWeather);
   }
 
   return(

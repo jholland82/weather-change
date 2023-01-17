@@ -7,7 +7,7 @@ export function PlaceContainer(props) {
   const {
     body,
     locationState,
-    weatherSetState,
+    setWeather,
     setError
   } = props;
 
@@ -16,11 +16,13 @@ export function PlaceContainer(props) {
       <SearchContainer body={body}
                        error={setError}
                        setLocations={locationState.setLocations}/>
-      {locationState.locations.map((data, index) => <PlaceCard
-                                                     error={setError}
-                                                     key={index}
-                                                     location={data}
-                                                     weatherSetState={weatherSetState}/>)}
+        {locationState.locations.map((data, index) => (
+            <PlaceCard
+              error={setError}
+              key={index}
+              location={data}
+              setWeather={setWeather}/>
+        ))}
     </React.Fragment>
   )
 }

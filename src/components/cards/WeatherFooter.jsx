@@ -1,5 +1,4 @@
-
-export function weatherFooter(props) {
+export function WeatherFooter(props) {
   const { loadHistoricalData } = props;
 
   return(
@@ -13,4 +12,4 @@ export function weatherFooter(props) {
   )
 }
 
-export default weatherFooter;
+export default WeatherFooter;

@@ -1,7 +1,7 @@
 import axios from 'axios';
 import {resetErrors} from '../utils/errors'
 
-export function currentWeather(event, setError, weatherSetState) {
+export function currentWeather(event, setError, setDisplayWeather, setPlace, setWeather) {
   const locationName = event.currentTarget.dataset.location;
   const lat = event.currentTarget.dataset.lat;
   const lon = event.currentTarget.dataset.lon;
@@ -12,7 +12,7 @@ export function currentWeather(event, setError, weatherSetState) {
             + `&lon=${lon}`
             + `&appId=${process.env.REACT_APP_WEATHER_SECRET}`
             + `&units=${units}`).then(res => {
-              weatherSetState.setWeather(
+              setWeather(
                 {
                   geometry: {
                     lat: lat,
@@ -21,8 +21,8 @@ export function currentWeather(event, setError, weatherSetState) {
                   weatherData: [
                 res.data.current]
                 });
-              weatherSetState.setDisplayWeather(true);
-              weatherSetState.setPlace(locationName);
+              setDisplayWeather(true);
+              setPlace(locationName);
             }).catch((error) => {
               setError({
                 error_message: "Unable to retrieve weather information from the Endpoint",
@@ -31,7 +31,7 @@ export function currentWeather(event, setError, weatherSetState) {
             })
 }
 
-export function historicalWeather(geometry, setError, weather, weatherSetState) {
+export function historicalWeather(geometry, setError, weather, setWeather) {
   const lat = geometry.lat;
   const lon = geometry.lon;
   const units = 'imperial';
@@ -79,7 +79,7 @@ export function historicalWeather(geometry, setError, weather, weatherSetState) 
   })
 
   Promise.all(requestArr).then((result) => {
-    weatherSetState.setWeather(
+    setWeather(
       {
         geometry: {
           lat: lat,

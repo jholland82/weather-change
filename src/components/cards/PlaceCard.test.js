@@ -1,4 +1,6 @@
-import { render, fireEvent, screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
+import { PlaceProvider } from '../../context/placeContext';
+import AppTest from '../../test/Apptest';
 import { PlaceCard } from './PlaceCard'
 
 const location = {
@@ -11,7 +13,13 @@ const location = {
 const setErrorMock = jest.fn();
 
 test('description is rendered', () => {
-  render(<PlaceCard location={location} error={setErrorMock}/>);
+  render(
+    <AppTest>
+      <PlaceProvider>
+        <PlaceCard location={location} error={setErrorMock}/>
+      </PlaceProvider>
+    </AppTest>
+  );
   const textElement = screen.getByText(location.place_name);
   expect(textElement).toBeInTheDocument();
 })

@@ -1,7 +1,6 @@
 import { render, fireEvent, screen } from '@testing-library/react';
 import { ResetButton } from './ResetButton';
 
-const setDisplayWeatherMock = jest.fn();
 const resetAppMock = jest.fn();
 
 test('renders a Reset Button', () => {
